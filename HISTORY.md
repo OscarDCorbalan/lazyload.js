@@ -1,3 +1,7 @@
+# 1.0.0 - 05 Feb. 2017
+
+  * Export inViewport function to be able to lazy-load elements.
+
 # 0.9.0 - 05 Feb. 2017
 
   * Clone of https://github.com/vvo/lazyload

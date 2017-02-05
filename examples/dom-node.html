@@ -1,0 +1,22 @@
+<!doctype html>
+<title>lazyloading images</title>
+<script src="../build/lazyload.min.js"></script>
+
+<h1>simple images example</h1>
+<h2>scroll for more</h2>
+
+<div style="margin-top:2000px"></div>
+
+
+<div id="lazyloadme">inViewport callback did not run</div>
+
+<script>
+	console.log('Starting inline script');
+	var div = document.getElementById('lazyloadme');
+	console.log('Target <div>:', div);
+	inViewport(div, {}, function(e){
+		console.log('Hello', e)
+		div.innerHTML = '<strong>inViewport callback succesfully ran!!</strong>';
+	});
+	console.log('Incline script finished');
+</script>

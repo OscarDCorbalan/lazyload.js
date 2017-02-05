@@ -4,6 +4,7 @@ var inViewport = require('in-viewport');
 var lazyAttrs = ['data-src'];
 
 global.lzld = lazyload();
+global.inViewport = inViewport;
 
 // Provide libs using getAttribute early to get the good src
 // and not the fake data-src
