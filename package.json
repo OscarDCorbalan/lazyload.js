@@ -1,6 +1,6 @@
 {
   "name": "lazyload.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Image and DOM lazy loading with JS",
   "keywords": "lazyload, lazy, load, js, javascript, dom, images, ajax",
   "main": "./lazyload.js",
@@ -13,10 +13,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/OscarDCorbalan/gulp-less-pug-skeleton.git"
+    "url": "https://github.com/OscarDCorbalan/lazyload.js.git"
   },
   "bugs": {
-    "url": "https://github.com/OscarDCorbalan/gulp-less-pug-skeleton/issues",
+    "url": "https://github.com/OscarDCorbalan/lazyload.js/issues",
     "email": "oscardc@gmx.com"
   },
   "author": {
