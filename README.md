@@ -1,4 +1,4 @@
-# Not fonished
+# README not finished
 
 ## Install
 

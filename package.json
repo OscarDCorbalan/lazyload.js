@@ -1,6 +1,6 @@
 {
   "name": "lazyload.js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Image and DOM lazy loading with JS",
   "keywords": "lazyload, lazy, load, js, javascript, dom, images, ajax",
   "main": "./lazyload.js",
