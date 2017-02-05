@@ -1,0 +1,42 @@
+{
+  "name": "lazyload.js",
+  "version": "0.9.0",
+  "description": "Image and DOM lazy loading with JS",
+  "keywords": "lazyload, lazy, load, js, javascript, dom, images, ajax",
+  "main": "./lazyload.js",
+  "scripts": {
+    "build": "browserify ./lazyload.js -s lazyload -p deumdify > build/lazyload.js && ccjs build/lazyload.js > build/lazyload.min.js",
+    "watch": "watchify ./lazyload.js -d -s lazyload -p deumdify -o build/lazyload.min.js -v",
+    "dev": "npm run watch & DEBUG=zuul* zuul --local 8080 -- test/*.js",
+    "test": "npm run build && DEBUG=zuul* zuul --tunnel ngrok -- test/*.js",
+    "examples": "http-server ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OscarDCorbalan/gulp-less-pug-skeleton.git"
+  },
+  "bugs": {
+    "url": "https://github.com/OscarDCorbalan/gulp-less-pug-skeleton/issues",
+    "email": "oscardc@gmx.com"
+  },
+  "author": {
+    "name": "Oscar D. Corbalan",
+    "email": "oscardc@gmx.com",
+    "url": "http://www.oscardc.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "in-viewport": "^3.4.1"
+  },
+  "devDependencies": {
+    "browserify": "^12.0.1",
+    "closurecompiler": "^1.5.2",
+    "deumdify": "^1.2.2",
+    "express": "^4.13.3",
+    "http-server": "^0.8.5",
+    "merge": "^1.2.0",
+    "watchify": "^3.6.1",
+    "zuul": "^3.8.0",
+    "zuul-ngrok": "^3.2.0"
+  }
+}
