@@ -92,9 +92,9 @@ function replaceGetAttribute(elementName) {
     };
 }
 
-const merge = (defaults, opts) {
+const merge = (defaults, opts) => {
     for (let name in defaults) {
-        if (opts[name] === undefined) {
+        if (typeof opts[name] === 'undefined') {
             opts[name] = defaults[name];
         }
     }
