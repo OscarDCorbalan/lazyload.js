@@ -1,13 +1,13 @@
 {
   "name": "lazyload.js",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Image and DOM lazy loading with JS",
   "keywords": "lazyload, lazy, load, js, javascript, dom, images, ajax",
   "main": "./lazyload.js",
   "scripts": {
     "build": "browserify ./lazyload.js -s lazyload -p deumdify > build/lazyload.js && ccjs build/lazyload.js > build/lazyload.min.js",
     "watch": "watchify ./lazyload.js -d -s lazyload -p deumdify -o build/lazyload.min.js -v",
-    "dev": "npm run watch & DEBUG=zuul* zuul --local 8080 -- test/*.js",
+    "dev": "npm run watch & DEBUG=zuul* zuul --local 80 -- test/*.js",
     "test": "npm run build && DEBUG=zuul* zuul --tunnel ngrok -- test/*.js",
     "examples": "http-server ./"
   },
