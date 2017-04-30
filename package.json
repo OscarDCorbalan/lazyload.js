@@ -1,6 +1,6 @@
 {
   "name": "lazyload.js",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Image and DOM lazy loading with JS",
   "keywords": "lazyload, lazy, load, js, javascript, dom, images, ajax",
   "main": "./lazyload.js",
@@ -29,6 +29,8 @@
     "in-viewport": "^3.4.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2017": "^6.24.1",
     "browserify": "^12.0.1",
     "closurecompiler": "^1.5.2",
     "deumdify": "^1.2.2",
