@@ -1,7 +1,7 @@
 module.exports = lazyload;
 
-var inViewport = require('in-viewport');
-var lazyAttrs = ['data-src'];
+let inViewport = require('in-viewport');
+let lazyAttrs = ['data-src'];
 
 global.lzld = lazyload();
 global.inViewport = inViewport;
@@ -28,10 +28,10 @@ function lazyload(opts) {
         registerLazyAttr(opts.src);
     }
 
-    var elts = [];
+    let elts = [];
 
     const show = elt => {
-        var src = findRealSrc(elt);
+        let src = findRealSrc(elt);
 
         if(src) {
             elt.src = src;
@@ -67,16 +67,16 @@ function lazyload(opts) {
 }
 
 function replaceGetAttribute(elementName) {
-    var fullname = 'HTML' + elementName + 'Element';
+    let fullname = 'HTML' + elementName + 'Element';
     if (fullname in global === false) {
         return;
     }
 
-    var original = global[fullname].prototype.getAttribute;
+    let original = global[fullname].prototype.getAttribute;
     global[fullname].prototype.getAttribute = function(name) {
         if (name === 'src') {
-            var realSrc;
-            for (var i = 0, max = lazyAttrs.length; i < max; i++) {
+            let realSrc;
+            for (let i = 0, max = lazyAttrs.length; i < max; i++) {
                 realSrc = original.call(this, lazyAttrs[i]);
                 if (realSrc) {
                     break;
@@ -93,7 +93,7 @@ function replaceGetAttribute(elementName) {
 }
 
 const merge = (defaults, opts) {
-    for (var name in defaults) {
+    for (let name in defaults) {
         if (opts[name] === undefined) {
             opts[name] = defaults[name];
         }
@@ -104,6 +104,6 @@ const merge = (defaults, opts) {
 
 // http://webreflection.blogspot.fr/2011/06/partial-polyfills.html
 const indexOf = value => {
-    for (var i = this.length; i-- && this[i] !== value;) {}
+    for (let i = this.length; i-- && this[i] !== value;) {}
     return i;
 }
