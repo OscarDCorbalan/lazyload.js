@@ -11,12 +11,6 @@ global.inViewport = inViewport;
 replaceGetAttribute('Image');
 replaceGetAttribute('IFrame');
 
-const registerLazyAttr = attr => {
-    if (indexOf.call(lazyAttrs, attr) === -1) {
-        lazyAttrs.push(attr);
-    }
-}
-
 function lazyload(opts) {
     opts = merge({
         'offset': 333,
@@ -30,23 +24,22 @@ function lazyload(opts) {
 
     let elts = [];
 
-    const show = elt => {
-        let src = findRealSrc(elt);
+    var findRealSrc = elt => {
+        if(typeof opts.src === 'function') {
+            return opts.src(elt);
+        }
 
+        return elt.getAttribute(opts.src);
+    }
+
+    var show = elt => {
+        let src = findRealSrc(elt);
         if(src) {
             elt.src = src;
         }
 
         elt.setAttribute('data-lzled', true);
         elts[indexOf.call(elts, elt)] = null;
-    }
-
-    const findRealSrc = elt => {
-        if (typeof opts.src === 'function') {
-            return opts.src(elt);
-        }
-
-        return elt.getAttribute(opts.src);
     }
 
     const register = elt => {
@@ -64,6 +57,29 @@ function lazyload(opts) {
     }
 
     return register;
+}
+
+// Partial polyfill
+function indexOf(value) {
+    for (var i = this.length; i-- && this[i] !== value;) {}
+    return i;
+}
+
+function registerLazyAttr(attr) {
+    console.log(indexOf)
+    if (indexOf.call(lazyAttrs, attr) === -1) {
+        lazyAttrs.push(attr);
+    }
+};
+
+function merge(defaults, opts){
+    for (let name in defaults) {
+        if (typeof opts[name] === 'undefined') {
+            opts[name] = defaults[name];
+        }
+    }
+
+    return opts;
 }
 
 function replaceGetAttribute(elementName) {
@@ -90,20 +106,4 @@ function replaceGetAttribute(elementName) {
         // because we use getAttribute(opts.src)
         return original.call(this, name);
     };
-}
-
-const merge = (defaults, opts) => {
-    for (let name in defaults) {
-        if (typeof opts[name] === 'undefined') {
-            opts[name] = defaults[name];
-        }
-    }
-
-    return opts;
-}
-
-// http://webreflection.blogspot.fr/2011/06/partial-polyfills.html
-const indexOf = value => {
-    for (let i = this.length; i-- && this[i] !== value;) {}
-    return i;
 }
