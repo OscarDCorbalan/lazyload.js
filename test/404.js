@@ -1,4 +1,3 @@
-// https://github.com/vvo/lazyload/issues/62
 describe('when an image resolves to 404', function() {
   require('./fixtures/bootstrap.js');
   beforeEach(h.clean);
