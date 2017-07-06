@@ -119,4 +119,6 @@ Please consider using [browserify](https://github.com/substack/node-browserify).
 
 ## Sites using lazyload
 
-...
+  * [TopBoats](https://www.topboats.com)
+  * [MealEaters](http://www.mealeaters.com)
+  * ...list yours here!
